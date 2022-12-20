@@ -1,0 +1,67 @@
+﻿<Window x:Class="CarRenting_v2.CardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CarRenting_v2"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="780" Width="450"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+        <materialDesign:DialogHost CloseOnClickAway="True"
+                                   x:Name="DialogHost">
+            <StackPanel >
+
+
+                <Image Margin="0 60 0 5" 
+                       Source="Assets/Images/credit_card.png" Height="200"/>
+                <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center"
+                         FontSize="28" FontWeight="Bold" Text="Step 3"
+                           />
+                <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"
+                           Text="Card Details..." />
+
+                <WrapPanel>
+                    <Image Margin="30 10 0 0" 
+                       Source="Assets/Images/mastercard.png" Height="60" Width="60"/>
+                    <Image Margin="30 10 0 0" 
+                       Source="Assets/Images/revolut.png" Height="60" Width="60"/>
+                    <Image Margin="30 10 0 0" 
+                       Source="Assets/Images/visa.jpg" Height="60" Width="60"/>
+                    <Image Margin="30 10 0 0" 
+                       Source="Assets/Images/bt.png" Height="60" Width="60"/>
+                </WrapPanel>
+                <TextBox Margin="0 20 0 0" x:Name="txtCardNumber" Width="300" FontSize="15"
+                         materialDesign:HintAssist.Hint="Enter your card number" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <TextBox Margin="0 20 0 0" x:Name="txtCardName" Width="300" FontSize="15"
+                         materialDesign:HintAssist.Hint="Enter your card number" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <WrapPanel>
+                    <TextBox Margin="50 20 0 0" x:Name="txtCardCvv" Width="150" FontSize="15"
+                         materialDesign:HintAssist.Hint="CVV" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                    <TextBox Margin="10 20 0 0" x:Name="txtCardExp" Width="150" FontSize="15"
+                         materialDesign:HintAssist.Hint="EXP" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                </WrapPanel>
+                <WrapPanel>
+                    <Button Margin="0 10 0 0" x:Name="BackButton"
+                     Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                     Height="53" Width="200" materialDesign:ButtonAssist.CornerRadius="20" FontSize="18" Content="Back to app" Click="BackButton_Click"/>
+                <Button Margin="0 10 0 0" x:Name="RentButton"
+                     Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                     Height="53" Width="200" materialDesign:ButtonAssist.CornerRadius="20" FontSize="18" Content="Rent" Click="RentButton_Click"/>
+                </WrapPanel>
+            </StackPanel>
+        </materialDesign:DialogHost>
+
+
+    </materialDesign:Card>
+</Window>

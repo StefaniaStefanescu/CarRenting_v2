@@ -1,0 +1,48 @@
+﻿<Window x:Class="CarRenting_v2.RentStep1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CarRenting_v2"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="780" Width="450"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+        <materialDesign:DialogHost CloseOnClickAway="True"
+                                   x:Name="DialogHost">
+            <StackPanel >
+
+
+                <Image Margin="0 60 0 5" 
+                       Source="Assets/Images/logo.png" Height="200"/>
+                <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center"
+                         FontSize="28" FontWeight="Bold" Text="Step 1"
+                           />
+                <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"
+                           Text="Choose a pick-up and drop-down date..." />
+               
+                    <Viewbox Height="300"
+                         Width="330">
+                        <WrapPanel>
+                            <Calendar x:Name="Pick_upCalendar" Height="361" Width="266" />
+                        <Calendar x:Name="Drop_downCalendar" Height="361" Width="266" />
+                        </WrapPanel>
+                    </Viewbox>
+                <WrapPanel>
+                    <Button Margin="0 0 0 0" x:Name="BackButton"
+                       Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Height="53" Width="200" materialDesign:ButtonAssist.CornerRadius="20" FontSize="18" Content="Back" Click="BackButton_Click"/>
+                    <Button Margin="0 0 0 0" x:Name="NextButton"
+                       Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Height="53" Width="200" materialDesign:ButtonAssist.CornerRadius="20" FontSize="18" Content="Next" Click="NextButton_Click"/>
+                </WrapPanel>
+            </StackPanel>
+        </materialDesign:DialogHost>
+
+
+    </materialDesign:Card>
+</Window>
