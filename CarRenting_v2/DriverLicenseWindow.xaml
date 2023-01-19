@@ -36,7 +36,7 @@
                            Text="Let us check your driver license..." />
                 <TextBox Margin="0 10 0 0" x:Name="txtDriverID" Width="300" FontSize="15"
                          materialDesign:HintAssist.Hint="Enter driver id" BorderThickness="2"
-                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" TextChanged="txtDriverID_TextChanged"/>
                 <ComboBox x:Name="GendreCb" Margin="0 10 0 0" Width="300" FontSize="15" materialDesign:HintAssist.Hint="Choose your gendre"
                           BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignComboBox}"></ComboBox>
                 <ComboBox x:Name="ClassCb" Margin="0 10 0 0" Width="300" FontSize="15" materialDesign:HintAssist.Hint="Choose your class"

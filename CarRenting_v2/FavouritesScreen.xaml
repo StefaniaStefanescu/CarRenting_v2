@@ -24,7 +24,7 @@
                            />
                 <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"
                            Text="Here are your favourite cars" />
-                <DataGrid Height="260" x:Name="FavoritesGrid"/>
+                <DataGrid Height="260" x:Name="FavoritesGrid" IsReadOnly="True"/>
                 <Button Margin="0 20 0 0" x:Name="BackButton"
                        Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Back" Click="BackButton_Click"/>

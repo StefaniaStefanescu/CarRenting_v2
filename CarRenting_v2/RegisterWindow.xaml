@@ -37,8 +37,8 @@
                 <TextBox Margin="0 20 0 0" x:Name="txtName" Width="300" FontSize="10"
                          materialDesign:HintAssist.Hint="Enter your name" BorderThickness="2"
                          BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <TextBox Margin="0 20 0 0" x:Name="txtSurname" Width="300" FontSize="10"
-                         materialDesign:HintAssist.Hint="Enter your surname" BorderThickness="2"
+                <TextBox Margin="0 20 0 0" x:Name="txtBirthDate" Width="300" FontSize="10"
+                         materialDesign:HintAssist.Hint="Enter your birthdate" BorderThickness="2"
                          BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <TextBox Margin="0 20 0 0" x:Name="txtUsername" Width="300" FontSize="10"
                          materialDesign:HintAssist.Hint="Enter Username" BorderThickness="2"

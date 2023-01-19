@@ -22,6 +22,19 @@ namespace CarRenting_v2
         public FavouritesScreen()
         {
             InitializeComponent();
+            var context = new Car_RentEntities();
+            var results = from c in context.Favorites
+                          join c2 in context.Cars on c.ID_Car equals c2.ID_Car
+                          join c3 in context.Brands on c2.ID_Brand equals c3.ID_Brand
+                          select new Result {
+                              Brand = c3.Name,            
+                        
+                        };
+            FavoritesGrid.ItemsSource = results.ToArray();
+        }
+        private class Result {
+           public string Brand { get; set; }
+        
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

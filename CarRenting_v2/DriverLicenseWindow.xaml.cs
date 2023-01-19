@@ -19,8 +19,10 @@ namespace CarRenting_v2
     /// </summary>
     public partial class DriverLicenseWindow : Window
     {
-        public DriverLicenseWindow()
+        private int client_id;
+        public DriverLicenseWindow(int id)
         {
+            client_id = id;
             InitializeComponent();
             Add_items_to_comboboxes();
 
@@ -78,16 +80,79 @@ namespace CarRenting_v2
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            var context = new Car_RentEntities();
+            var client = (from c in context.Clients
+                         where c.ID_Client == client_id
+                         select c).First();
+            context.Clients.Remove(client);
+            context.SaveChanges();
             Application.Current.Shutdown();
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            var context = new Car_RentEntities();
+            string driver_id=txtDriverID.Text.ToString();
+            string gender = GendreCb.Text.ToString();
+            string newClass=ClassCb.Text.ToString();
+            string hairColor=HairCb.Text.ToString();
+            string eyesColor=EyesCb.Text.ToString();
+            double height = Convert.ToDouble(HeightCb.Text.ToString());
+            var results = from c in context.Driver_License
+                          where c.DriverID.Equals(driver_id)
+                              select c;
+            if (results.Count() > 0)
+            {
+                //MessageBox.Show("Error Driver ID in use!");
+                bool? Result = new CustomMessageBox("Driver ID already in use!", MessageType.Error, MessageButtons.Ok).ShowDialog();
+                return;
+            }
+
+            var newDriver_License = new Driver_License() {
+                Class = newClass,
+                DriverID = driver_id,
+                Gender = gender,
+                HairColor = hairColor,
+                EyesColor = eyesColor,
+                Height = height           
+            };
+            //Global_Client.cl.Driver_License.Add(newDriver_License);
+            var myClient=(from c in context.Clients
+                         where c.ID_Client.Equals(Global_Client.cl.ID_Client)
+                         select c).First();
+           // context.Clients.FirstOrDefault(x => x.ID_Client==myClient.ID_Client).Driver_License.Add(newDriver_License);
+           // myClient.Driver_License.Add(newDriver_License);
+            //myClient = Global_Client.cl;
+            context.Driver_License.Add(newDriver_License);
+            context.SaveChanges();
+            Client_Licenses xer = new Client_Licenses()
+            {
+                ID_Client = Global_Client.cl.ID_Client,
+                ID_License = newDriver_License.ID_License
+
+
+            };
+            context.Client_Licenses.Add(xer);
+            context.SaveChanges();
+         //   var d_id = (from c in context.Driver_License
+         //                   where c.DriverID == driver_id
+         //                   select c).First();
+
+           // var connection = new Client_Licenses()
+           // {
+           //     ID_Client = client_id,
+          //     ID_License = d_id.ID_License
+           // };
+            //context.Client_Licenses.Add(connection);
+
             MainScreen mainScreen = new MainScreen();
             Close();
             mainScreen.ShowDialog();
         }
 
-       
+        private void txtDriverID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

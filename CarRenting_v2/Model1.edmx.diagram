@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e73f5047fa145f5bd6cf86861ebbe18" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="Car_RentModel.Brand" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Car" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Center" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Client" Width="1.5" PointX="6.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Credit_Card" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Favorite" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Model" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Provider" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Rent" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Car_RentModel.Car_Specifications" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="Car_RentModel.FK_Car_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Car_Center" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Car_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Car_Specs" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Favorites_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Rent_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Favorites_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Rent_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.FK_Rent_Credit_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="Car_RentModel.Provider_Centers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Car_RentModel.Client_Licenses" Width="1.5" PointX="2.75" PointY="1.25" />
+        <EntityTypeShape EntityType="Car_RentModel.Driver_License" Width="1.5" PointX="0.5" PointY="15.625" />
+        <AssociationConnector Association="Car_RentModel.FK_ClientLicense_DriverLicense" />
+        <AssociationConnector Association="Car_RentModel.FK_Client_Licenses_Driver_License" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

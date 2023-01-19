@@ -17,10 +17,20 @@ using MaterialDesignThemes.Wpf;
 
 namespace CarRenting_v2
 {
+    static class Global_Client {
+        public static Client cl;
+    
+    }
+    static class Global_Rent
+    {
+        public static Rent rt;
+
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            Global_Rent.rt = new Rent();
             InitializeComponent();
         }
          
@@ -57,6 +67,34 @@ namespace CarRenting_v2
             RegisterWindow newwindow = new RegisterWindow();
             Close();
             newwindow.ShowDialog();
+        }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var context = new Car_RentEntities())
+            {
+                var username = txtUsername.Text.ToString();
+                var password = txtPassword.Password.ToString();
+                var results = from c in context.Clients
+                              where c.Username.Equals (username)&& c.Password.Equals (password)
+                              select c;
+                if (results.Count() == 0) {
+
+                  //  MessageBox.Show("No user found!");
+                    bool? Result = new CustomMessageBox("No user was found. Try again ? ", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+
+                    return;
+                }
+                Global_Client.cl = results.First();
+
+                    MainScreen newWindow = new MainScreen();
+                    Close();
+                    newWindow.ShowDialog();
+
+
+            
+            
+            }
         }
     }
 }

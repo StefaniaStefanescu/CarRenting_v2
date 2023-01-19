@@ -22,8 +22,39 @@ namespace CarRenting_v2
         public HistoryScreen()
         {
             InitializeComponent();
+            var context = new Car_RentEntities();
+            DateTime date = DateTime.Now;
+            var results = from c in context.Rents
+                          join c2 in context.Cars on c.ID_Car equals c2.ID_Car
+                          join c3 in context.Centers on c2.ID_Center equals c3.ID_Center
+                          join c4 in context.Brands on c2.ID_Brand equals c4.ID_Brand
+                          where c.ID_Client == Global_Client.cl.ID_Client
+                          where c.DropDown_Date < date
+                          select new Result()
+                          {
+                              Pick_up = c.PickUp_Date,
+                              Dropdown = c.DropDown_Date,
+                              Car_name = c4.Name,
+                              Pickup_location = c3.Location,
+                              Dropdown_location = c3.Location,
+                              Price = c.Total_Price
+                          };
+            if (results.Count() > 0)
+            {
+                HistoryGrid.ItemsSource = results.ToArray();
+            }
         }
+        private class Result
+        {
+            public DateTime Pick_up { get; set; }
+            public DateTime Dropdown { get; set; }
+            public string Car_name { get; set; }
+            public string Pickup_location { get; set; }
+            public string Dropdown_location { get; set; }
+            public int Price { get; set; }
 
+
+        }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainScreen mainWindow = new MainScreen();

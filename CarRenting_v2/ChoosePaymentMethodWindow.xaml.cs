@@ -19,23 +19,38 @@ namespace CarRenting_v2
     /// </summary>
     public partial class ChoosePaymentMethodWindow : Window
     {
-        public ChoosePaymentMethodWindow()
+        public int car_ID { get; set; }
+        public ChoosePaymentMethodWindow(int id )
         {
+            car_ID = id;
             InitializeComponent();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            RentStep1 w = new RentStep1();
+            RentStep1 w = new RentStep1(car_ID);
             Close();
             w.ShowDialog();
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            CardWindow w = new CardWindow();
-            Close();
-            w.ShowDialog();
+            if (CardMethodCb.IsChecked == true)
+            {
+                CardWindow w = new CardWindow();
+                Close();
+                w.ShowDialog();
+            }
+            else
+            {
+                MessageBoxMD w = new MessageBoxMD();
+                var context = new Car_RentEntities();
+                context.Rents.Add(Global_Rent.rt);
+                context.SaveChanges();
+                this.Close();
+                w.ShowDialog();
+            }
+
         }
     }
 }
